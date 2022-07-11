@@ -8,14 +8,11 @@
 
     <LinearLayout
         android:id="@+id/menu"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-
-        android:layout_margin="50dp"
-
-        android:background="#9999EE"
+        android:layout_width="@dimen/zero"
+        android:layout_height="@dimen/zero"
+        android:layout_margin="@dimen/menu_weight"
+        android:background="@color/purple"
         android:orientation="vertical"
-
         app:layout_constraintBottom_toTopOf="@+id/bottom_bar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,8 +21,8 @@
     <FrameLayout
         android:id="@+id/bottom_bar"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:background="#4444ED"
+        android:layout_height="@dimen/bar_height"
+        android:background="@color/blue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/menu"
         />
@@ -33,8 +30,8 @@
     <FrameLayout
         android:id="@+id/top_bar"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:background="#44EEFF"
+        android:layout_height="@dimen/bar_height"
+        android:background="@color/l_blue"
         app:layout_constraintBottom_toTopOf="@+id/menu"
         app:layout_constraintTop_toTopOf="parent" />
 
