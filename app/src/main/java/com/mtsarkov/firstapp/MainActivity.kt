@@ -2,6 +2,9 @@ package com.mtsarkov.firstapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.view.animation.AccelerateDecelerateInterpolator
+import android.view.animation.DecelerateInterpolator
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -38,6 +41,15 @@ class MainActivity : AppCompatActivity() {
                 }
                 else -> false
             }
+        }
+
+        poster_2.setOnClickListener{
+            poster_2.animate()
+                .setDuration(300)
+                .setInterpolator(AccelerateDecelerateInterpolator())
+                .scaleX(0.9f)
+                .scaleY(0.9f)
+                .start()
         }
     }
 
