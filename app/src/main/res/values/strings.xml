@@ -2,7 +2,7 @@
     <string name="app_name">Movies</string>
     <string name="posters_link">Постеры предоставлены \n https://www.movieposters.com/collections/franchise-pixar</string>
     <string name="menu">Меню</string>
-    <string name="fav">Избранное</string>
+    <string name="favorite">Избранное</string>
     <string name="watch_later">Посмотреть позже</string>
     <string name="selections">Подборки</string>
     <string name="settings">Настройки</string>
