@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        if (supportFragmentManager.backStackEntryCount == 1){
+        if (supportFragmentManager.backStackEntryCount == EXIT_FRAGMENTS_COUNT){
             if (backPressed + EXIT_TIME_INTERVAL > System.currentTimeMillis()){
                 super.onBackPressed()
                 finish()
@@ -33,10 +33,6 @@ class MainActivity : AppCompatActivity() {
         } else {
             super.onBackPressed()
         }
-    }
-
-    companion object {
-        const val EXIT_TIME_INTERVAL = 2000
     }
 
     fun launchDetailsFragment(film: Film) {
@@ -82,5 +78,10 @@ class MainActivity : AppCompatActivity() {
                 else -> false
             }
         }
+    }
+
+    companion object {
+        const val EXIT_TIME_INTERVAL = 2000
+        const val EXIT_FRAGMENTS_COUNT = 2000
     }
 }
