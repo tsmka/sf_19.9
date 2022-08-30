@@ -2,7 +2,9 @@
 <resources>
     <dimen name="zero">0dp</dimen>
     <dimen name="menu_weight">50dp</dimen>
+    <dimen name="toolbar_minHeight">60dp</dimen>
     <dimen name="def_height">100dp</dimen>
+    <dimen name="app_bar_height">200dp</dimen>
     <dimen name="def_margin">10dp</dimen>
     <dimen name="def_cornerRadius">15dp</dimen>
     <dimen name="def_elevation">15dp</dimen>
