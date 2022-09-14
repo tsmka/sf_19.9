@@ -7,6 +7,7 @@
     <string name="selections">Подборки</string>
     <string name="settings">Настройки</string>
     <string name="page_title">Movies</string>
+    <string name="home_text">Главная</string>
     <string name="message_fro_exit">"Дважды нажмите для выхода"</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

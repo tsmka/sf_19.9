@@ -3,6 +3,7 @@ package com.mtsarkov.firstapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -63,25 +64,45 @@ class MainActivity : AppCompatActivity() {
     private fun initNavigation() {
         bottom_navigation.setOnItemReselectedListener {
             when (it.itemId) {
+                R.id.home -> {
+                    val tag = "home"
+                    val fragment = checkFragmentExistence(tag)
+                    //В первом параметре, если фрагмент не найден и метод вернул null, то с помощью
+                    //элвиса мы вызываем создание нвого фрагмента
+                    changeFragment( fragment?: HomeFragment(), tag)
+                    true
+                }
                 R.id.favorites -> {
-                    supportFragmentManager
-                        .beginTransaction()
-                        .replace(R.id.fragment_placeholder, FavoritesFragment())
-                        .addToBackStack(null)
-                        .commit()
+                    val tag = "favorites"
+                    val fragment = checkFragmentExistence(tag)
+                    changeFragment(fragment?: FavoritesFragment(), tag)
                     true
                 }
                 R.id.watch_later -> {
-                    Toast.makeText(this, R.string.watch_later, Toast.LENGTH_SHORT).show()
+                    val tag = "watch_later"
+                    val fragment = checkFragmentExistence(tag)
+                    changeFragment(fragment?: FavoritesFragment(), tag)
                     true
                 }
                 R.id.selections -> {
-                    Toast.makeText(this, R.string.selections, Toast.LENGTH_SHORT).show()
+                    val tag = "selections"
+                    val fragment = checkFragmentExistence(tag)
+                    changeFragment(fragment?: FavoritesFragment(), tag)
                     true
                 }
                 else -> false
             }
         }
+    }
+
+    private fun checkFragmentExistence(tag: String): Fragment? = supportFragmentManager.findFragmentByTag(tag)
+
+    private fun changeFragment(fragment: Fragment, tag: String) {
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.fragment_placeholder, fragment, tag)
+            .addToBackStack(null)
+            .commit()
     }
 
     companion object {
