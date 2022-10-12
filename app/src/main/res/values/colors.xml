@@ -5,6 +5,12 @@
     <color name="l_blue">#F4EE</color>
     <color name="red">#F900</color>
     <color name="l_red">#FE55</color>
+    <color name="orange">#FF80</color>
+    <color name="l_orange">#FFB6</color>
+    <color name="green">#F0C6</color>
+    <color name="l_green">#F9F9</color>
+    <color name="grey">#F888</color>
+    <color name="l_grey">#FCCC</color>
     <color name="black">#F333</color>
     <color name="white">#FFFF</color>
 
