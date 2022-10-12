@@ -14,7 +14,7 @@ import java.util.*
 class HomeFragment : Fragment() {
     private lateinit var filmsAdapter: FilmListRecyclerAdapter
 
-    val filmsDataBase = listOf(
+    private val filmsDataBase = listOf(
         Film("Prey", R.drawable.prey, "The origin story of the Predator in the world of the Comanche Nation 300 years ago. Naru, a skilled warrior, fights to protect her tribe against one of the first highly-evolved Predators to land on Earth."),
         Film("Bullet Train", R.drawable.bullet_train, "Five assassins aboard a fast moving bullet train find out their missions have something in common."),
         Film("Thirteen Lives", R.drawable.thirteen_lives, "A rescue mission is assembled in Thailand where a group of young boys and their soccer coach are trapped in a system of underground caves that are flooding."),
@@ -26,6 +26,11 @@ class HomeFragment : Fragment() {
         Film("Uncharted", R.drawable.uncharted, "Street-smart Nathan Drake is recruited by seasoned treasure hunter Victor \"Sully\" Sullivan to recover a fortune amassed by Ferdinand Magellan, and lost 500 years ago by the House of Moncada."),
         Film("Lightyear", R.drawable.lightyear, "While spending years attempting to return home, marooned Space Ranger Buzz Lightyear encounters an army of ruthless robots commanded by Zurg who are attempting to steal his fuel source.")
     )
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        retainInstance = true
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,6 +46,7 @@ class HomeFragment : Fragment() {
 
         initSearch()
         initRecycler()
+        filmsAdapter.addItems(filmsDataBase)
     }
 
     private fun initRecycler() {
@@ -55,7 +61,7 @@ class HomeFragment : Fragment() {
             val decorator = TopSpacingItemDecoration(8)
             addItemDecoration(decorator)
         }
-        filmsAdapter.addItems(filmsDataBase)
+
     }
 
     private fun initSearch() {

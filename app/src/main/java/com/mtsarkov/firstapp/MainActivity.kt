@@ -62,7 +62,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initNavigation() {
-        bottom_navigation.setOnItemReselectedListener {
+        bottom_navigation.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.home -> {
                     val tag = "home"
@@ -81,13 +81,13 @@ class MainActivity : AppCompatActivity() {
                 R.id.watch_later -> {
                     val tag = "watch_later"
                     val fragment = checkFragmentExistence(tag)
-                    changeFragment(fragment?: FavoritesFragment(), tag)
+                    changeFragment(fragment?: WatchLaterFragment(), tag)
                     true
                 }
                 R.id.selections -> {
                     val tag = "selections"
                     val fragment = checkFragmentExistence(tag)
-                    changeFragment(fragment?: FavoritesFragment(), tag)
+                    changeFragment(fragment?: SelectionsFragment(), tag)
                     true
                 }
                 else -> false
