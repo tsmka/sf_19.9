@@ -3,15 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="150dp">
+    android:layout_height="@dimen/film_item_height">
 
     <com.mtsarkov.firstapp.RatingDonutView
         android:id="@+id/rating_donut"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:translationZ="11dp"
-        app:stroke="10"
-        app:progress="50"
+        android:layout_width="@dimen/donut_diameter"
+        android:layout_height="@dimen/donut_diameter"
+        android:translationZ="@dimen/donut_translationZ"
+        app:stroke="@dimen/progress_line"
+        app:progress="@dimen/progress_value"
         android:layout_gravity="bottom|start"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -20,9 +20,9 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/item_container"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:elevation="1dp"
-        app:cardCornerRadius="10dp">
+        android:layout_height="@dimen/film_item_height"
+        android:elevation="@dimen/elevation"
+        app:cardCornerRadius="@dimen/cardCornerRadius">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -30,7 +30,7 @@
 
             <ImageView
                 android:id="@+id/poster"
-                android:layout_width="150dp"
+                android:layout_width="@dimen/film_item_height"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -39,10 +39,10 @@
 
             <TextView
                 android:id="@+id/title"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/zero"
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
-                android:padding="8dp"
+                android:padding="@dimen/film_item_padding"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline"
                 app:layout_constraintLeft_toRightOf="@+id/poster"
                 app:layout_constraintRight_toRightOf="parent"
@@ -51,9 +51,9 @@
 
             <TextView
                 android:id="@+id/description"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:padding="8dp"
+                android:layout_width="@dimen/zero"
+                android:layout_height="@dimen/zero"
+                android:padding="@dimen/film_item_padding"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toRightOf="@+id/poster"
                 app:layout_constraintRight_toRightOf="parent"

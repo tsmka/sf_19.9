@@ -2,6 +2,7 @@
 <resources>
     <dimen name="zero">0dp</dimen>
     <dimen name="menu_weight">50dp</dimen>
+    <dimen name="donut_diameter">50dp</dimen>
     <dimen name="toolbar_minHeight">60dp</dimen>
     <dimen name="def_height">100dp</dimen>
     <dimen name="app_bar_height">200dp</dimen>
@@ -9,4 +10,11 @@
     <dimen name="def_cornerRadius">15dp</dimen>
     <dimen name="def_elevation">15dp</dimen>
     <dimen name="image_weight">1</dimen>
+    <dimen name="film_item_height">150dp</dimen>
+    <dimen name="donut_translationZ">11dp</dimen>
+    <dimen name="progress_line">10</dimen>
+    <dimen name="progress_value">50</dimen>
+    <dimen name="cardCornerRadius">10dp</dimen>
+    <dimen name="elevation">1dp</dimen>
+    <dimen name="film_item_padding">8dp</dimen>
 </resources>

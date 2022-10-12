@@ -12,7 +12,7 @@ class RatingDonutView @JvmOverloads constructor(context: Context, attributeSet: 
     private var centerY: Float = 0f
     private var stroke: Float = 10f
     private var progress = 50
-    private var scaleSize = 60f
+    private var scaleSize = 50f
     private lateinit var strokePaint: Paint
     private lateinit var digitPaint: Paint
     private lateinit var circlePaint: Paint
@@ -30,9 +30,9 @@ class RatingDonutView @JvmOverloads constructor(context: Context, attributeSet: 
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
         radius = if (width > height) {
-            height.div(2f)
+            height.div(donutPosition)
         } else {
-            width.div(2f)
+            width.div(donutPosition)
         }
     }
 
@@ -46,9 +46,9 @@ class RatingDonutView @JvmOverloads constructor(context: Context, attributeSet: 
         val chosenWidth = chooseDimension(widthMode, widthSize)
         val chosenHeight = chooseDimension(heightMode, heightSize)
 
-        val minSide = Math.min(chosenWidth, chosenHeight)
-        centerX = minSide.div(2f)
-        centerY = minSide.div(2f)
+        val minSide = chosenWidth.coerceAtMost(chosenHeight)
+        centerX = minSide.div(donutPosition)
+        centerY = minSide.div(donutPosition)
 
         setMeasuredDimension(minSide, minSide)
     }
@@ -63,9 +63,9 @@ class RatingDonutView @JvmOverloads constructor(context: Context, attributeSet: 
         val scale = radius * 0.8f
         canvas.save()
         canvas.translate(centerX, centerY)
-        oval.set(0f - scale, 0f - scale, scale, scale)
-        canvas.drawCircle(0f,0f, radius, circlePaint)
-        canvas.drawArc(oval, -90f, convertProgressToDegrees(progress), false, strokePaint)
+        oval.set(zeroPosition - scale, zeroPosition - scale, scale, scale)
+        canvas.drawCircle(zeroPosition, zeroPosition, radius, circlePaint)
+        canvas.drawArc(oval, startAngle, convertProgressToDegrees(progress), false, strokePaint)
         canvas.restore()
     }
 
@@ -75,7 +75,7 @@ class RatingDonutView @JvmOverloads constructor(context: Context, attributeSet: 
         val message = String.format("%.1f", progress / 10f)
         val widths = FloatArray(message.length)
         digitPaint.getTextWidths(message, widths)
-        var advance = 0f
+        var advance = zeroPosition
         for (width in widths) advance += width
         canvas.drawText(message, centerX - advance / 2, centerY + advance / 4, digitPaint)
     }
@@ -120,5 +120,11 @@ class RatingDonutView @JvmOverloads constructor(context: Context, attributeSet: 
         in 26 .. 50 -> Color.parseColor("#fd8060")
         in 51 .. 75 -> Color.parseColor("#fee191")
         else -> Color.parseColor("#b0d8a4")
+    }
+
+    companion object {
+        const val donutPosition: Float = 2f
+        const val zeroPosition: Float = 0f
+        const val startAngle: Float = -90f
     }
 }
