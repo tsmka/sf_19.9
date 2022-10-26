@@ -12,8 +12,6 @@
     <dimen name="image_weight">1</dimen>
     <dimen name="film_item_height">150dp</dimen>
     <dimen name="donut_translationZ">11dp</dimen>
-    <dimen name="progress_line">10</dimen>
-    <dimen name="progress_value">50</dimen>
     <dimen name="cardCornerRadius">10dp</dimen>
     <dimen name="elevation">1dp</dimen>
     <dimen name="film_item_padding">8dp</dimen>
