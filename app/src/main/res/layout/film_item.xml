@@ -10,21 +10,22 @@
         android:layout_width="@dimen/donut_diameter"
         android:layout_height="@dimen/donut_diameter"
         android:translationZ="@dimen/donut_translationZ"
-        app:stroke="@dimen/progress_line"
-        app:progress="@dimen/progress_value"
+        app:stroke="10"
+        app:progress="50"
         android:layout_gravity="bottom|start"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"/>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/item_container"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/film_item_height"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/def_margin"
         android:elevation="@dimen/elevation"
         app:cardCornerRadius="@dimen/cardCornerRadius">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/item_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
